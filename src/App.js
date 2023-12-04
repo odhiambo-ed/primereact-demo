@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <DataTable value={data}>
-        <Column field="id" header="ID"></Column>
+        <Column field="id" header="ID" sortable></Column>
         <Column field="name" header="Name"></Column>
         <Column field="age" header="Age"></Column>
         <Column field="city" header="City"></Column>
