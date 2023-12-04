@@ -5,6 +5,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { useState } from 'react';
 import { FilterMatchMode } from 'primereact/api';
+import { InputText } from 'primereact/inputtext';
 
 
 function App() {
@@ -14,9 +15,9 @@ function App() {
   return (
     <div className="App">
       <div>
-
+        <InputText value={filter.global.value} onChange={(e) => setFilter({ ...filter, global: { value: e.target.value, matchMode: FilterMatchMode.CONTAINS }, })} />
       </div>
-      <DataTable value={data}>
+      <DataTable value={data} filters={filter}>
         <Column field="id" header="ID" sortable></Column>
         <Column field="name" header="Name"></Column>
         <Column field="age" header="Age"></Column>
