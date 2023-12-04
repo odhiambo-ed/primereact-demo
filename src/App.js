@@ -17,7 +17,9 @@ function App() {
       <div>
         <InputText value={filter.global.value} onChange={(e) => setFilter({ ...filter, global: { value: e.target.value, matchMode: FilterMatchMode.CONTAINS }, })} />
       </div>
-      <DataTable value={data} filters={filter}>
+      <DataTable value={data} filters={filter}
+        paginator rows={3} rowsPerPageOptions={[10, 25, 50]} totalRecords={data.length}
+      >
         <Column field="id" header="ID" sortable></Column>
         <Column field="name" header="Name"></Column>
         <Column field="age" header="Age"></Column>
